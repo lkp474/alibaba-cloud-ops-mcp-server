@@ -1,4 +1,5 @@
 # alibaba-cloud-ops-mcp-server
+[![smithery badge](https://smithery.ai/badge/@lkp474/alibaba-cloud-ops-mcp-server)](https://smithery.ai/server/@lkp474/alibaba-cloud-ops-mcp-server)
 [中文版本](./README_zh.md)
 ## Prepare
 
