@@ -1,0 +1,29 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - accessKeyId
+      - accessKeySecret
+    properties:
+      accessKeyId:
+        type: string
+        description: Alibaba Cloud Access Key ID
+      accessKeySecret:
+        type: string
+        description: Alibaba Cloud Access Key Secret
+      transport:
+        type: string
+        default: stdio
+        description: Transport type
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'alibaba-cloud-ops-mcp-server', args: ['--transport', config.transport], env: { ALIBABA_CLOUD_ACCESS_KEY_ID: config.accessKeyId, ALIBABA_CLOUD_ACCESS_KEY_SECRET: config.accessKeySecret } })
+  exampleConfig:
+    accessKeyId: test-id
+    accessKeySecret: test-secret
+    transport: stdio
